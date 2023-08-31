@@ -7,7 +7,7 @@ public class Or extends Gate {
         super();
 
     }
-
+    @Override
     public void evaluate(){
         boolOut = boolIn1 || boolIn2;
     }

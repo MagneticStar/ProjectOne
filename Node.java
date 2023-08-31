@@ -11,7 +11,5 @@ public class Node {
         gate = g;
     }
     public void evaluateNode() {
-        gate.setBoolIn1();
-
     }
 }

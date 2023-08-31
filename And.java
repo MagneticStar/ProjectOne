@@ -6,7 +6,7 @@ public class And extends Gate {
     public And() {
         super();
     }
-
+    @Override
     public void evaluate(){
         boolOut = boolIn1 && boolIn2;
     }

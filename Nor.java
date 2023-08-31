@@ -8,8 +8,8 @@ public class Nor extends Gate {
 
     }
     @Override
-    public boolean evaluate(){
-        return !(boolIn1 || boolIn2);
+    public void evaluate(){
+        boolOut = !(boolIn1 || boolIn2);
     }
 
     public void setBool1(boolean bool1) {
