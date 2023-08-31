@@ -11,11 +11,11 @@ public class And extends Gate {
         return boolIn1 && boolIn2;
     }
 
-    public void setBool1(boolean bool1) {
+    public void setBoolIn1(boolean bool1) {
         boolIn1 = bool1;
     }
 
-    public void setBool2(boolean bool2) {
+    public void setBoolIn2(boolean bool2) {
         boolIn2 = bool2;
     }
 
