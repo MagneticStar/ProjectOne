@@ -1,10 +1,22 @@
+import java.awt.Point;
+import java.util.ArrayList;
+
 public class Main {
+    public static ArrayList<Node> nodeList = new ArrayList<Node>();
+
+    
+
     public static void main(String args[]) {
         createScreens();
         // while(true) {
         //     tick();
         // }
-        
+        for(int i = 0; i < 20; i++) {
+            nodeList.add(new Node());
+        }
+        for(int i = 0; i < 20; i++) {
+            nodeList.get(i).setPoint(new Point(1, 5));
+        }
     }
 
     static void tick() {
