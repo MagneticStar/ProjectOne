@@ -14,6 +14,7 @@ public class Main {
     static void createScreens() {
         Screen sc = new Screen();
         Panel p = new Panel();
+        Translation worldSpaceToScreenSpace = new Translation(10000, 10000);
         sc.add(p);
         sc.setVisible(true);
     }
