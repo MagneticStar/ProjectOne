@@ -7,8 +7,8 @@ public class Not extends Gate {
 
     }
 
-    public boolean evaluate(){
-        return !boolIn;
+    public void evaluate(){
+        boolOut =  !boolIn;
     }
 
     public void setBool(boolean bool1) {

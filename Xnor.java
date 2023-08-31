@@ -7,8 +7,8 @@ public class Xnor extends Gate {
         super();
     }
 
-    public boolean evaluate(){
-        return !(boolIn1 ^ boolIn2);
+    public void evaluate(){
+        boolOut = !(boolIn1 ^ boolIn2);
     }
 
     public void setBool1(boolean bool1) {
@@ -18,7 +18,7 @@ public class Xnor extends Gate {
     public void setBool2(boolean bool2) {
         boolIn2 = bool2;
     }
-    
+
     public boolean getBoolOut() {
         return boolOut;
     }

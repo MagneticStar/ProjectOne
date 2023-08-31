@@ -7,8 +7,8 @@ public class And extends Gate {
         super();
     }
 
-    public boolean evaluate(){
-        return boolIn1 && boolIn2;
+    public void evaluate(){
+        boolOut = boolIn1 && boolIn2;
     }
 
     public void setBoolIn1(boolean bool1) {
