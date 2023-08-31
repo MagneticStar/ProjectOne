@@ -42,4 +42,15 @@ public class Node {
     public Point getPoint() {
         return location;
     }
+    public int[] getPosMat() {
+        int[] ans = new int[2];
+        ans[0] = (int)location.getX();
+        ans[1] = (int)location.getY();
+        return ans;
+    }
+    public Point getPrintPos() {
+        Main.worldSpaceToScreenSpace.setWorld(Main.p.getWidth(), Main.p.getHeight());
+        int[] ans = Main.worldSpaceToScreenSpace.translate(this.getPosMat());
+        return new Point(ans[0], ans[1]);
+    }
 }

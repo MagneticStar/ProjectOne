@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class Main {
     public static ArrayList<Node> nodeList = new ArrayList<Node>();
-
-    
+    public static Translation worldSpaceToScreenSpace;
+    public static Panel p;
 
     public static void main(String args[]) {
         createScreens();
@@ -25,8 +25,8 @@ public class Main {
 
     static void createScreens() {
         Screen sc = new Screen();
-        Panel p = new Panel();
-        Translation worldSpaceToScreenSpace = new Translation(10000, 10000);
+        p = new Panel();
+        worldSpaceToScreenSpace = new Translation(10000, 10000);
         sc.add(p);
         sc.setVisible(true);
     }
