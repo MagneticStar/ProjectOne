@@ -1,20 +1,36 @@
-import java.awt.Point;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
-import javax.swing.JPanel;
-
-public class Node extends JPanel{
+public class Node {
     private Gate gate;
-    private Point location;
+    private Point2D.Double location;
     private ArrayList<Node> connectionsInput1 = new ArrayList<Node>(); 
     private ArrayList<Node> connectionsInput2 = new ArrayList<Node>(); 
     private boolean input1 = false;
     private boolean input2 = false;
     private boolean output = false;
+    private double width = 10;
+    private double height = 10;
     public Node() {
-        this.addMouseListener(Main.mouseListener);
+
     }
-    public void setPoint(Point p) {
+    public void scaleDimensions(double xScaler, double yScaler) {
+        width *= xScaler;
+        height *= yScaler;
+    }
+    public void setWidth(int width) {
+        this.width = width;
+    }
+    public int getWidth() {
+        return (int)width;
+    }
+    public void setHeight(int height) {
+        this.height = height;
+    }
+    public int getHeight() {
+        return (int)height;
+    }
+    public void setPoint(Point2D.Double p) {
         location = p;
     }
     public void setGate(Gate g) {
@@ -42,19 +58,33 @@ public class Node extends JPanel{
     public Gate getGate() {
         return gate;
     }
-    public Point getPoint() {
+    public Point2D.Double getPoint() {
         return location;
     }
-    public int[] getPosMat() {
-        int[] ans = new int[2];
-        ans[0] = (int)location.getX();
-        ans[1] = (int)location.getY();
+    public double[] getPosMat() {
+        double[] ans = new double[2];
+        ans[0] = location.getX();
+        ans[1] = location.getY();
         return ans;
     }
-    public Point getPrintPos() {
-        Main.worldSpaceToScreenSpace.setWorld(Main.p.getWidth(), Main.p.getHeight());
-        int[] ans = Main.worldSpaceToScreenSpace.translate(this.getPosMat());
-        return new Point(ans[0], ans[1]);
+    public Point2D.Double getPrintPos() {
+        Main.worldSpaceToScreenSpace.setWorld();
+       
+
+        double[] ans = Main.worldSpaceToScreenSpace.translate(this.getPosMat());
+         
+        //
+
+        // sets center
+        ans[0] += Main.p.getWidth()/2;
+        ans[1] += Main.p.getHeight()/2;
+        
+        // mouse pan
+        ans[0] += Main.mouseListener.getPanX();
+        ans[1] += Main.mouseListener.getPanY();
+
+        //
+        return new Point2D.Double(ans[0], ans[1]);
     }
     
     public void addConnectionIn1(Node nodeIn) {
@@ -83,6 +113,10 @@ public class Node extends JPanel{
         }
     }
 
+    public void clicked() {
+        // called when clicked
+        System.out.println("clicked");
+    }
     
 
 

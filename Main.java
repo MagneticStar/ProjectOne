@@ -1,4 +1,4 @@
-import java.awt.Point;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 public class Main {
@@ -13,9 +13,14 @@ public class Main {
         // }
         for(int i = 0; i < 1; i++) {
             nodeList.add(new Node());
-            nodeList.get(i).setPoint(new Point(2, 5));
-            nodeList.get(i).setGate(new Xor());
+            
         }
+        nodeList.get(0).setPoint(new Point2D.Double(1, 1));
+        nodeList.get(0).setGate(new Or());
+        // nodeList.get(1).setPoint(new Point2D.Double(5, 7));
+        // nodeList.get(1).setGate(new Or());
+        // nodeList.get(2).setPoint(new Point2D.Double(-4, -4));
+        // nodeList.get(2).setGate(new And());
     }
 
     static void tick() {
@@ -28,9 +33,10 @@ public class Main {
         p.addMouseListener(mouseListener);
         p.addMouseMotionListener(mouseListener);
         p.addMouseWheelListener(mouseListener);
-        worldSpaceToScreenSpace = new Translation(10, 10);
         sc.add(p);
+        
         sc.setVisible(true);
+        worldSpaceToScreenSpace = new Translation(10, 10, p.getWidth(), p.getHeight());
     }
 
     
