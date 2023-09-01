@@ -8,9 +8,7 @@ public class Main {
     public static Mouse mouseListener = new Mouse();
     public static void main(String args[]) {
         createScreens();
-        // while(true) {
-        //     tick();
-        // }
+        
         for(int i = 0; i < 1; i++) {
             nodeList.add(new Node());
             
@@ -21,6 +19,15 @@ public class Main {
         // nodeList.get(1).setGate(new Or());
         // nodeList.get(2).setPoint(new Point2D.Double(-4, -4));
         // nodeList.get(2).setGate(new And());
+        while(true) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            tick();
+        }
     }
 
     static void tick() {
