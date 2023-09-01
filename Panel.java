@@ -10,7 +10,7 @@ public class Panel extends JPanel {
         // Where all graphics are rendered
         for (int i = 0; i < Main.nodeList.size(); i++) {
             g.setColor(Color.WHITE);
-            g.drawRect(Main.nodeList.get(i).getPrintPos().x,Main.nodeList.get(i).getPrintPos().y, 10, 10);
+            g.drawRect(Main.nodeList.get(i).getPrintPos().x,Main.nodeList.get(i).getPrintPos ().y, 10, 10);
         }
     }
 }
