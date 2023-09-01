@@ -24,6 +24,7 @@ public class Node {
     public void setConnection2(Node n) {
         connectionsInput2.add(n);
     }
+
     public void recieveinput1(boolean input) {
         input1 = input;
     }
@@ -53,4 +54,35 @@ public class Node {
         int[] ans = Main.worldSpaceToScreenSpace.translate(this.getPosMat());
         return new Point(ans[0], ans[1]);
     }
+    
+    public void addConnectionIn1(Node nodeIn) {
+        this.connectionsInput1.add(nodeIn);
+    }
+
+    public void addConnectionIn2(Node nodeIn) {
+        this.connectionsInput2.add(nodeIn);
+    }
+
+    public void extractIn1() {
+        for(Node i: connectionsInput1) {
+            if(i.getOutput() == true) {
+                input1 = true;
+                return;
+            }
+        }
+    }
+
+    public void extractIn2() {
+        for(Node i: connectionsInput2) {
+            if(i.getOutput() == true) {
+                input2 = true;
+                return;
+            }
+        }
+    }
+
+    
+
+
+    
 }
