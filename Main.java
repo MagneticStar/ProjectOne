@@ -31,7 +31,18 @@ public class Main {
     }
 
     static void tick() {
+        for (Node workingNode : nodeList) {
+            workingNode.evaluateGate(); 
+        }
+        for (Node workingNode : nodeList) {
+               
+            for (Node workedNode1 : workingNode.connectionsInput1) {
+                
+            }
+            for (Node workNode2 : workingNode.connectionsInput2) {
 
+            }
+        }
     }
 
     static void createScreens() {
