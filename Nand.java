@@ -1,4 +1,7 @@
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
 
 public class Nand extends Gate{
 
@@ -11,5 +14,13 @@ public class Nand extends Gate{
     }
     public Color getColor() {
         return Color.RED;
+    }
+    static class action extends AbstractAction {
+        public action() {
+            
+        }
+        public void actionPerformed(ActionEvent e) {
+
+        } 
     }
 }

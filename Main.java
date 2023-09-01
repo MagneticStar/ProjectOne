@@ -1,5 +1,8 @@
+import java.awt.event.KeyEvent;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+
+import javax.swing.KeyStroke;
 
 public class Main {
     public static ArrayList<Node> nodeList = new ArrayList<Node>();
@@ -63,11 +66,34 @@ public class Main {
         p.addMouseMotionListener(mouseListener);
         p.addMouseWheelListener(mouseListener);
         sc.add(p);
-        
+        setNumPad();
         sc.setVisible(true);
         worldSpaceToScreenSpace = new Translation(10, 10, p.getWidth(), p.getHeight());
     }
 
+    static void setNumPad() {
+        And.action and = new And.action();
+        Nand.action nand = new Nand.action();
+        Nor.action nor = new Nor.action();
+        Or.action or = new Or.action();
+        Xor.action xor = new Xor.action();
+        Xnor.action xnor = new Xnor.action();
+        Not.action not = new Not.action();
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD1, 0), "AND");
+        p.getActionMap().put("AND", and);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD2, 0), "NAND");
+        p.getActionMap().put("NAND", nand);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD3, 0), "NOR");
+        p.getActionMap().put("NOR", nor);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD4, 0), "OR");
+        p.getActionMap().put("OR", or);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD5, 0), "XOR");
+        p.getActionMap().put("XOR", xor);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD6, 0), "XNOR");
+        p.getActionMap().put("XNOR", xnor);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD7, 0), "NOT");
+        p.getActionMap().put("NOT", not);
+    }
     
 
 }

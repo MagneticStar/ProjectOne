@@ -1,4 +1,7 @@
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
 
 public class Xnor extends Gate {
     
@@ -11,5 +14,13 @@ public class Xnor extends Gate {
     }
     public Color getColor() {
         return Color.ORANGE;
+    }
+    static class action extends AbstractAction {
+        public action() {
+            
+        }
+        public void actionPerformed(ActionEvent e) {
+
+        } 
     }
 }

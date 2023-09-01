@@ -1,4 +1,7 @@
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
 
 public class Nor extends Gate {
     
@@ -12,5 +15,13 @@ public class Nor extends Gate {
     }
     public Color getColor() {
         return Color.GREEN;
+    }
+    static class action extends AbstractAction {
+        public action() {
+            
+        }
+        public void actionPerformed(ActionEvent e) {
+
+        } 
     }
 }
