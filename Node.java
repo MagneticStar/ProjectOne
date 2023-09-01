@@ -4,8 +4,8 @@ import java.util.ArrayList;
 public class Node {
     private Gate gate;
     private Point2D.Double location;
-    private ArrayList<Node> connectionsInput1 = new ArrayList<Node>(); 
-    private ArrayList<Node> connectionsInput2 = new ArrayList<Node>(); 
+    public ArrayList<Node> connectionsInput1 = new ArrayList<Node>(); 
+    public ArrayList<Node> connectionsInput2 = new ArrayList<Node>(); 
     private boolean input1 = false;
     private boolean input2 = false;
     private boolean output = false;

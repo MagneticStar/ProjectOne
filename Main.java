@@ -37,10 +37,18 @@ public class Main {
         for (Node workingNode : nodeList) {
                
             for (Node workedNode1 : workingNode.connectionsInput1) {
-                
+                workingNode.recieveinput1(false);
+                if (workedNode1.getOutput() == true) {
+                    workingNode.recieveinput1(true);
+                    break;
+                }
             }
-            for (Node workNode2 : workingNode.connectionsInput2) {
-
+            for (Node workedNode2 : workingNode.connectionsInput2) {
+                workingNode.recieveinput2(false);
+                if (workedNode2.getOutput() == true) {
+                    workingNode.recieveinput2(true);
+                    break;
+                }
             }
         }
     }
