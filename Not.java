@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 public class Not extends Gate {
 
     public Not() {
@@ -8,5 +10,7 @@ public class Not extends Gate {
     public boolean evaluate(boolean one, boolean two){
         return !one;
     }
-
+    public Color getColor() {
+        return Color.BLUE;
+    }
 }

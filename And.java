@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 public class And extends Gate {
 
     public And() {
@@ -7,5 +9,7 @@ public class And extends Gate {
     public boolean evaluate(boolean one, boolean two){
         return one && two;
     }
-
+    public Color getColor() {
+        return Color.WHITE;
+    }
 }

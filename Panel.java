@@ -8,9 +8,14 @@ public class Panel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         // Where all graphics are rendered
+        paintnodes(g);
+    }
+    private void paintnodes(Graphics g) {
+        Node workingNode;
         for (int i = 0; i < Main.nodeList.size(); i++) {
-            g.setColor(Color.WHITE);
-            g.drawRect(Main.nodeList.get(i).getPrintPos().x,Main.nodeList.get(i).getPrintPos ().y, 10, 10);
+            workingNode = Main.nodeList.get(i);
+            g.setColor(workingNode.getGate().getColor());
+            g.fillRect(Main.nodeList.get(i).getPrintPos().x,Main.nodeList.get(i).getPrintPos ().y, 10, 10);
         }
     }
 }

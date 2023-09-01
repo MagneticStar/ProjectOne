@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 public class Or extends Gate {
 
     public Or() {
@@ -8,5 +10,7 @@ public class Or extends Gate {
     public boolean evaluate(boolean one, boolean two){
         return one || two;
     }
-
+    public Color getColor() {
+        return Color.YELLOW;
+    }
 }

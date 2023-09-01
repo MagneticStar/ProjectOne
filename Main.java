@@ -11,12 +11,12 @@ public class Main {
         // while(true) {
         //     tick();
         // }
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < 1; i++) {
             nodeList.add(new Node());
-        }
-        for(int i = 0; i < 20; i++) {
             nodeList.get(i).setPoint(new Point(1, 5));
+            nodeList.get(i).setGate(new Or());
         }
+
     }
 
     static void tick() {
