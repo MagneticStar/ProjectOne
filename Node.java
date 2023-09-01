@@ -9,6 +9,7 @@ public class Node {
     private boolean input1 = false;
     private boolean input2 = false;
     private boolean output = false;
+    private boolean nextOutput = false;
     private double width = 10;
     private double height = 10;
     public Node() {
@@ -41,6 +42,9 @@ public class Node {
     }
     public void setConnection2(Node n) {
         connectionsInput2.add(n);
+    }
+    public void setNextOutput(boolean nextOut) {
+        nextOutput = nextOut;
     }
 
     public void recieveinput1(boolean input) {
