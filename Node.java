@@ -43,9 +43,6 @@ public class Node {
     public void setConnection2(Node n) {
         connectionsInput2.add(n);
     }
-    public void setNextOutput(boolean nextOut) {
-        nextOutput = nextOut;
-    }
 
     public void recieveinput1(boolean input) {
         input1 = input;
@@ -54,7 +51,7 @@ public class Node {
         input2 = input;
     }
     public void evaluateGate() {
-        output = gate.evaluate(input2, input1);
+        nextOutput = gate.evaluate(input2, input1);
     }
     public boolean getOutput() {
         return output;
