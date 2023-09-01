@@ -73,17 +73,10 @@ public class Node {
 
         double[] ans = Main.worldSpaceToScreenSpace.translate(this.getPosMat());
          
-        //
-
         // sets center
         ans[0] += Main.p.getWidth()/2;
         ans[1] += Main.p.getHeight()/2;
         
-        // mouse pan
-        ans[0] += Main.mouseListener.getPanX();
-        ans[1] += Main.mouseListener.getPanY();
-
-        //
         return new Point2D.Double(ans[0], ans[1]);
     }
     
