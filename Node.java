@@ -1,7 +1,9 @@
 import java.awt.Point;
 import java.util.ArrayList;
 
-public class Node {
+import javax.swing.JPanel;
+
+public class Node extends JPanel{
     private Gate gate;
     private Point location;
     private ArrayList<Node> connectionsInput1 = new ArrayList<Node>(); 
@@ -10,7 +12,7 @@ public class Node {
     private boolean input2 = false;
     private boolean output = false;
     public Node() {
-        
+        this.addMouseListener(Main.mouseListener);
     }
     public void setPoint(Point p) {
         location = p;
