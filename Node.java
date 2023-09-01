@@ -9,7 +9,7 @@ public class Node {
     private boolean input1 = false;
     private boolean input2 = false;
     private boolean output = false;
-    public Node() { 
+    public Node() {
         
     }
     public void setPoint(Point p) {
