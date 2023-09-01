@@ -53,6 +53,9 @@ public class Node {
     public void evaluateGate() {
         nextOutput = gate.evaluate(input2, input1);
     }
+    public void nextOuputToCurrentOutput() {
+        output = nextOutput;
+    }
     public boolean getOutput() {
         return output;
     }

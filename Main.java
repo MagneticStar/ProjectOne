@@ -35,6 +35,9 @@ public class Main {
             workingNode.evaluateGate(); 
         }
         for (Node workingNode : nodeList) {
+            workingNode.nextOuputToCurrentOutput(); 
+        }
+        for (Node workingNode : nodeList) {
                
             for (Node workedNode1 : workingNode.connectionsInput1) {
                 workingNode.recieveinput1(false);
