@@ -1,8 +1,5 @@
-import java.awt.event.ActionEvent;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
-
-import javax.swing.AbstractAction;
 
 public class Node {
     private Gate gate;
