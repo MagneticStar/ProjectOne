@@ -5,11 +5,17 @@ public class Mouse extends MouseAdapter {
     
     @Override
     public void mouseClicked(MouseEvent e) {
+        System.out.println(e.getPoint());
         for (Node workingNode : Main.nodeList) {
             if (e.getPoint().distance(workingNode.getPrintPos()) < 10) {
                 workingNode.clicked();
+                return;
             }
         }
+        if (Main.nextGatePlacement != null) {
+            Main.nodeList.add(new Node(Node.getWorldPos(e.getPoint()), Main.nextGatePlacement));
+        }
+        
     }
     
     public void mouseWheelMoved(MouseWheelEvent e) {
@@ -26,7 +32,6 @@ public class Mouse extends MouseAdapter {
                 workingNode.scaleDimensions((1.0/1.1), (1.0/1.1));
             }
         }
-        
         Main.worldSpaceToScreenSpace.setWorld();
         Main.p.repaint();
     }

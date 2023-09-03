@@ -1,10 +1,14 @@
 import java.awt.*;
+
+
 import javax.swing.JPanel;
 
 public class Panel extends JPanel {
     public Panel() {
         setBackground(Color.black);
     }
+
+    
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -17,6 +21,8 @@ public class Panel extends JPanel {
             workingNode = Main.nodeList.get(i);
             g.setColor(workingNode.getGate().getColor());
             g.fillRect((int)workingNode.getPrintPos().x - workingNode.getWidth()/2, (int)workingNode.getPrintPos ().y - workingNode.getHeight()/2, workingNode.getWidth(), workingNode.getHeight());
+            System.out.println(Main.nodeList.size() + " " + workingNode.getPrintPos().x + " " + workingNode.getPrintPos().y);
+
         }
     }
 }

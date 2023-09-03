@@ -16,11 +16,8 @@ public class And extends Gate {
         return Color.WHITE;
     }
     static class action extends AbstractAction {
-        public action() {
-            
-        }
         public void actionPerformed(ActionEvent e) {
-            System.out.println("and");
+            Main.nextGatePlacement = new And();
         } 
     }
 }

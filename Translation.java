@@ -45,10 +45,29 @@ public class Translation {
         }
         return result;
     }
+    public double[] inverseTranslate(double[] input) {
+
+        double[] result = new double[2];
+
+        for (int i = 0; i < result.length; i++) {
+                result[i] = imultiplycell(input, i);
+        }
+        
+        return result;
+    }
     public double multiplycell(double[] input, int col) {
         double cell = 0.0;
         for (int i = 0; i < transMat.length; i++) {
             cell += input[i] * transMat[i][col];
+            System.out.println(transMat[i][col]);
+        }
+        return cell;
+    }
+    public double imultiplycell(double[] input, int col) {
+        double cell = 0.0;
+        for (int i = 0; i < transMat.length; i++) {
+            cell += input[i] / transMat[i][col];
+            System.out.println(transMat[i][col]);
         }
         return cell;
     }

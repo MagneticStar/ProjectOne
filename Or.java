@@ -17,11 +17,8 @@ public class Or extends Gate {
         return Color.YELLOW;
     }
     static class action extends AbstractAction {
-        public action() {
-            
-        }
         public void actionPerformed(ActionEvent e) {
-
+            Main.nextGatePlacement = new Or();
         } 
     }
 }

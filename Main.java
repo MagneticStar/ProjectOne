@@ -9,22 +9,14 @@ public class Main {
     public static Translation worldSpaceToScreenSpace;
     public static Panel p;
     public static Mouse mouseListener = new Mouse();
+    public static Gate nextGatePlacement;
     public static void main(String args[]) {
         createScreens();
         
-        for(int i = 0; i < 2; i++) {
-            nodeList.add(new Node());
-            
+        for(int i = 0; i < 1; i++) {
+            nodeList.add(new Node(new Point2D.Double(1, 1), new Or()));
         }
-        nodeList.get(0).setPoint(new Point2D.Double(1, 1));
-        nodeList.get(0).setGate(new Or());
-        nodeList.get(1).setPoint(new Point2D.Double(2, 2));
-        nodeList.get(1).setGate(new Switch());
-        // nodeList.get(1).setPoint(new Point2D.Double(5, 7));
-        // nodeList.get(1).setGate(new Or());
-        // nodeList.get(2).setPoint(new Point2D.Double(-4, -4));
-        // nodeList.get(2).setGate(new And());
-
+        
         while(true) {
             try {
                 Thread.sleep(1000);
@@ -108,7 +100,7 @@ public class Main {
         p.getActionMap().put("DOWN", down);
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0), "LEFT");
         p.getActionMap().put("LEFT", left);
-         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "RIGHT");
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "RIGHT");
         p.getActionMap().put("RIGHT", right);
     }
     

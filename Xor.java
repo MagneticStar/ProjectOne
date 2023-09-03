@@ -16,11 +16,8 @@ public class Xor extends Gate{
         return Color.PINK;
     }
     static class action extends AbstractAction {
-        public action() {
-            
-        }
         public void actionPerformed(ActionEvent e) {
-
+            Main.nextGatePlacement = new Xor();
         } 
     }
 }

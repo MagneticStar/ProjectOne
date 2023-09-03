@@ -17,11 +17,8 @@ public class Not extends Gate {
         return Color.BLUE;
     }
     static class action extends AbstractAction {
-        public action() {
-            
-        }
         public void actionPerformed(ActionEvent e) {
-
+            Main.nextGatePlacement = new Not();
         } 
     }
 }

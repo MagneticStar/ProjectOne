@@ -16,11 +16,8 @@ public class Xnor extends Gate {
         return Color.ORANGE;
     }
     static class action extends AbstractAction {
-        public action() {
-            
-        }
         public void actionPerformed(ActionEvent e) {
-
+            Main.nextGatePlacement = new Xnor();
         } 
     }
 }

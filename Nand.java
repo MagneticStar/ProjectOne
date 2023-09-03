@@ -16,11 +16,8 @@ public class Nand extends Gate{
         return Color.RED;
     }
     static class action extends AbstractAction {
-        public action() {
-            
-        }
         public void actionPerformed(ActionEvent e) {
-
+            Main.nextGatePlacement = new Nand();
         } 
     }
 }

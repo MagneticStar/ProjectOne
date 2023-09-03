@@ -17,11 +17,8 @@ public class Nor extends Gate {
         return Color.GREEN;
     }
     static class action extends AbstractAction {
-        public action() {
-            
-        }
         public void actionPerformed(ActionEvent e) {
-
+            Main.nextGatePlacement = new Nor();
         } 
     }
 }

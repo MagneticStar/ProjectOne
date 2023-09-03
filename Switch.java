@@ -1,17 +1,21 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 
+import javax.swing.AbstractAction;
+
 public class Switch extends Gate{
-    public boolean switchVal;
-
-    public boolean getSwitchVal() {
-        return this.switchVal;
+    
+    public boolean evaluate(boolean one, boolean two){
+        return one;
     }
 
-    public void setSwitchVal(boolean bool) {
-        this.switchVal = bool;
-    }
     public Color getColor() {
         return Color.CYAN;
+    }
+
+    static class action extends AbstractAction {
+        public void actionPerformed(ActionEvent e) {
+            Main.nextGatePlacement = new Switch();
+        } 
     }
 }

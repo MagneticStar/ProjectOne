@@ -1,8 +1,9 @@
+import java.awt.Point;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 public class Node {
-    private Gate gate;;
+    private Gate gate;
     private Point2D.Double location;
     public ArrayList<Node> connectionsInput1 = new ArrayList<Node>(); 
     public ArrayList<Node> connectionsInput2 = new ArrayList<Node>(); 
@@ -12,10 +13,12 @@ public class Node {
     private boolean nextOutput = false;
     private double width = 10;
     private double height = 10;
-    public double panX;
-    public double panY;
-    public Node() {
+    public static double panX;
+    public static double panY;
 
+    public Node(Point2D.Double location, Gate gate) {
+        this.location = location;
+        this.gate = gate;
     }
 
     public void scaleDimensions(double xScaler, double yScaler) {
@@ -54,7 +57,7 @@ public class Node {
         input2 = input;
     }
     public void evaluateGate() {
-        nextOutput = gate.evaluate(input2, input1);
+        nextOutput = gate.evaluate(input1, input2);
     }
     public void nextOuputToCurrentOutput() {
         output = nextOutput;
@@ -84,7 +87,19 @@ public class Node {
         
         return new Point2D.Double(ans[0], ans[1]);
     }
-    
+    public static Point2D.Double getWorldPos(Point screenPoint) {
+        Main.worldSpaceToScreenSpace.setWorld();
+        double[] screenArray = {screenPoint.getX(), screenPoint.getY()};
+        // sets center
+        screenArray[0] -= Main.p.getWidth()/2 + panX;
+        screenArray[1] -= Main.p.getHeight()/2 + panY;
+        System.out.println(screenArray[0] + "," + screenArray[1]);
+        double[] ans = Main.worldSpaceToScreenSpace.inverseTranslate(screenArray);
+        
+        
+        
+        return new Point2D.Double(ans[0], ans[1]);
+    }
     public void addConnectionIn1(Node nodeIn) {
         this.connectionsInput1.add(nodeIn);
     }
@@ -113,6 +128,8 @@ public class Node {
 
     public void clicked() {
         // called when clicked
+        // if isSwitch
+        // click -> setInput
         System.out.println("clicked");
     }
 }
