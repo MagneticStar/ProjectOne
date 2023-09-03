@@ -2,7 +2,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 public class Mouse extends MouseAdapter {
-
+    
     @Override
     public void mouseClicked(MouseEvent e) {
         for (Node workingNode : Main.nodeList) {

@@ -12,9 +12,12 @@ public class Node {
     private boolean nextOutput = false;
     private double width = 10;
     private double height = 10;
+    public double panX;
+    public double panY;
     public Node() {
 
     }
+
     public void scaleDimensions(double xScaler, double yScaler) {
         width *= xScaler;
         height *= yScaler;
@@ -73,13 +76,11 @@ public class Node {
     }
     public Point2D.Double getPrintPos() {
         Main.worldSpaceToScreenSpace.setWorld();
-       
-
         double[] ans = Main.worldSpaceToScreenSpace.translate(this.getPosMat());
          
         // sets center
-        ans[0] += Main.p.getWidth()/2;
-        ans[1] += Main.p.getHeight()/2;
+        ans[0] += Main.p.getWidth()/2 + panX;
+        ans[1] += Main.p.getHeight()/2 + panY;
         
         return new Point2D.Double(ans[0], ans[1]);
     }
@@ -114,8 +115,4 @@ public class Node {
         // called when clicked
         System.out.println("clicked");
     }
-    
-
-
-    
 }

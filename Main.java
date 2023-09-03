@@ -69,12 +69,12 @@ public class Main {
         p.addMouseMotionListener(mouseListener);
         p.addMouseWheelListener(mouseListener);
         sc.add(p);
-        setNumPad();
+        setUpKey();
         sc.setVisible(true);
         worldSpaceToScreenSpace = new Translation(10, 10, p.getWidth(), p.getHeight());
     }
 
-    static void setNumPad() {
+    static void setUpKey() {
         And.action and = new And.action();
         Nand.action nand = new Nand.action();
         Nor.action nor = new Nor.action();
@@ -82,6 +82,11 @@ public class Main {
         Xor.action xor = new Xor.action();
         Xnor.action xnor = new Xnor.action();
         Not.action not = new Not.action();
+        Arrow.Up up = new Arrow.Up();
+        Arrow.Down down = new Arrow.Down();
+        Arrow.Left left = new Arrow.Left();
+        Arrow.Right right = new Arrow.Right();
+
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD1, 0), "AND");
         p.getActionMap().put("AND", and);
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD2, 0), "NAND");
@@ -96,6 +101,15 @@ public class Main {
         p.getActionMap().put("XNOR", xnor);
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD7, 0), "NOT");
         p.getActionMap().put("NOT", not);
+
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "UP");
+        p.getActionMap().put("UP", up);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "DOWN");
+        p.getActionMap().put("DOWN", down);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0), "LEFT");
+        p.getActionMap().put("LEFT", left);
+         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "RIGHT");
+        p.getActionMap().put("RIGHT", right);
     }
     
 
