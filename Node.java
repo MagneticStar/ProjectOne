@@ -20,29 +20,41 @@ public class Node {
         this.location = location;
         this.gate = gate;
     }
-
+    //dimension scaler for zooming
     public void scaleDimensions(double xScaler, double yScaler) {
         width *= xScaler;
         height *= yScaler;
     }
+
+    //setters and getters
     public void setWidth(int width) {
         this.width = width;
     }
     public int getWidth() {
         return (int)width;
     }
+
     public void setHeight(int height) {
         this.height = height;
     }
     public int getHeight() {
         return (int)height;
     }
+
     public void setPoint(Point2D.Double p) {
         location = p;
     }
+    public Point2D.Double getPoint() {
+        return location;
+    }
+
     public void setGate(Gate g) {
         gate = g;
     }
+    public Gate getGate() {
+        return gate;
+    }
+
     public void setConnection1(Node n) {
         connectionsInput1.add(n);
     }
@@ -56,27 +68,27 @@ public class Node {
     public void recieveinput2(boolean input) {
         input2 = input;
     }
+
+    //evaluates the gate with the current inputs/outputs    
     public void evaluateGate() {
         nextOutput = gate.evaluate(input1, input2);
     }
+
     public void nextOuputToCurrentOutput() {
         output = nextOutput;
     }
     public boolean getOutput() {
         return output;
     }
-    public Gate getGate() {
-        return gate;
-    }
-    public Point2D.Double getPoint() {
-        return location;
-    }
+
+    //creates a matrix of the point    
     public double[] getPosMat() {
         double[] ans = new double[2];
         ans[0] = location.getX();
         ans[1] = location.getY();
         return ans;
     }
+
     public Point2D.Double getPrintPos() {
         Main.worldSpaceToScreenSpace.setWorld();
         double[] ans = Main.worldSpaceToScreenSpace.translate(this.getPosMat());
@@ -100,14 +112,15 @@ public class Node {
         
         return new Point2D.Double(ans[0], ans[1]);
     }
+    //adds the nodeIn to the connectionsInput ArrayLists
     public void addConnectionIn1(Node nodeIn) {
         this.connectionsInput1.add(nodeIn);
     }
-
     public void addConnectionIn2(Node nodeIn) {
         this.connectionsInput2.add(nodeIn);
     }
 
+    //extracts the values of the inputs for each node in the input ArrayLists
     public void extractIn1() {
         for(Node i: connectionsInput1) {
             if(i.getOutput() == true) {
@@ -116,7 +129,6 @@ public class Node {
             }
         }
     }
-
     public void extractIn2() {
         for(Node i: connectionsInput2) {
             if(i.getOutput() == true) {

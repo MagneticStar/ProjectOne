@@ -19,6 +19,7 @@ public class Main {
         
         while(true) {
             try {
+                //sets tick rate
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
@@ -27,7 +28,7 @@ public class Main {
             tick();
         }
     }
-
+    //evaluates the inputs and outputs of each gate each tick and sets the inputs of the next gate to evaluate the following tick
     static void tick() {
         for (Node workingNode : nodeList) {
             workingNode.evaluateGate(); 
@@ -65,7 +66,7 @@ public class Main {
         sc.setVisible(true);
         worldSpaceToScreenSpace = new Translation(10, 10, p.getWidth(), p.getHeight());
     }
-
+    //implements keyboard input for each gate type and panning
     static void setUpKey() {
         And.action and = new And.action();
         Nand.action nand = new Nand.action();

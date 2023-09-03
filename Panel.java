@@ -15,6 +15,8 @@ public class Panel extends JPanel {
         // Where all graphics are rendered
         paintnodes(g);
     }
+
+    //sets the color and creates the square graphic for each node in nodeList
     private void paintnodes(Graphics g) {
         Node workingNode;
         for (int i = 0; i < Main.nodeList.size(); i++) {
