@@ -12,16 +12,19 @@ public class Main {
     public static void main(String args[]) {
         createScreens();
         
-        for(int i = 0; i < 1; i++) {
+        for(int i = 0; i < 2; i++) {
             nodeList.add(new Node());
             
         }
         nodeList.get(0).setPoint(new Point2D.Double(1, 1));
         nodeList.get(0).setGate(new Or());
+        nodeList.get(1).setPoint(new Point2D.Double(2, 2));
+        nodeList.get(1).setGate(new Switch());
         // nodeList.get(1).setPoint(new Point2D.Double(5, 7));
         // nodeList.get(1).setGate(new Or());
         // nodeList.get(2).setPoint(new Point2D.Double(-4, -4));
         // nodeList.get(2).setGate(new And());
+
         while(true) {
             try {
                 Thread.sleep(1000);

@@ -2,7 +2,7 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 public class Node {
-    private Gate gate;
+    private Gate gate;;
     private Point2D.Double location;
     public ArrayList<Node> connectionsInput1 = new ArrayList<Node>(); 
     public ArrayList<Node> connectionsInput2 = new ArrayList<Node>(); 
