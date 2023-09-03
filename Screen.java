@@ -1,8 +1,10 @@
 import javax.swing.JFrame;
 
 public class Screen extends JFrame {
+    //screen size
     private int height = 500;
     private int width = 500;
+
 
     public Screen() {
         this.setSize(width, height);
