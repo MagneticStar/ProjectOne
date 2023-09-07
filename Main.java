@@ -12,6 +12,8 @@ public class Main {
     public static Panel p;
     public static Mouse mouseListener = new Mouse();
     public static Gate nextGatePlacement;
+    public static Node lastNodeClicked = null;
+    public static int nextInputChoice = 1;
     public static void main(String args[]) {
         createScreens();
         
@@ -96,6 +98,9 @@ public class Main {
         Arrow.Down down = new Arrow.Down();
         Arrow.Left left = new Arrow.Left();
         Arrow.Right right = new Arrow.Right();
+        Node.setNextInput1 set1 = new Node.setNextInput1();
+        Node.setNextInput2 set2 = new Node.setNextInput2();
+
 
         CtrlZ ctrlZ = new CtrlZ();
         CtrlY ctrlY = new CtrlY();
@@ -132,6 +137,11 @@ public class Main {
         p.getActionMap().put("CTRLZ", ctrlZ);
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Y, 0), "CTRLY");
         p.getActionMap().put("CTRLY", ctrlY);
-    }
+    
 
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD0, 0), "IN1");
+        p.getActionMap().put("IN1", set1);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_DECIMAL, 0), "IN2");
+        p.getActionMap().put("IN2", set2);
+    }
 }

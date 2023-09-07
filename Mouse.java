@@ -8,9 +8,8 @@ public class Mouse extends MouseAdapter {
 
         for (Node workingNode : Main.nodeList) {
             if (Math.abs(e.getPoint().x - workingNode.getPrintPos().x) < workingNode.getWidth()/2 && Math.abs(e.getPoint().y - workingNode.getPrintPos().y) < workingNode.getWidth()/2) {
-                System.out.println(e.getPoint() + " : " + workingNode.getPrintPos());
-                System.out.println(workingNode.getWidth() + " : " + workingNode.getHeight());
                 workingNode.clicked();
+                workingNode.setConnection();
                 return;
             }
         }
@@ -18,6 +17,7 @@ public class Mouse extends MouseAdapter {
             Main.nodeList.add(new Node(Node.getWorldPos(e.getPoint()), Main.nextGatePlacement));
             Main.deletedNodeList.clear();
         }
+        Main.lastNodeClicked = null;
         Main.p.repaint();
     }
     //sets the scale of nodes and moves them accordingly about the world center for zooming effect
@@ -38,4 +38,6 @@ public class Mouse extends MouseAdapter {
         Main.worldSpaceToScreenSpace.setWorld();
         Main.p.repaint();
     }
+
+
 }
