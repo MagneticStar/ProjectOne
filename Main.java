@@ -1,21 +1,19 @@
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
+import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
 
 public class Main {
     public static ArrayList<Node> nodeList = new ArrayList<Node>();
+    public static ArrayList<Node> deletedNodeList = new ArrayList<Node>();
     public static Translation worldSpaceToScreenSpace;
     public static Panel p;
     public static Mouse mouseListener = new Mouse();
     public static Gate nextGatePlacement;
     public static void main(String args[]) {
         createScreens();
-        
-        for(int i = 0; i < 1; i++) {
-            nodeList.add(new Node(new Point2D.Double(1, 1), new Or()));
-        }
         
         while(true) {
             try {
@@ -66,6 +64,22 @@ public class Main {
         sc.setVisible(true);
         worldSpaceToScreenSpace = new Translation(10, 10, p.getWidth(), p.getHeight());
     }
+    static class CtrlZ extends AbstractAction {
+        public void actionPerformed(ActionEvent e) {
+            if (nodeList.size() > 1) {
+                deletedNodeList.add(nodeList.remove(nodeList.size()-1));
+            p.repaint();
+            }
+        }
+    }
+    static class CtrlY extends AbstractAction {
+        public void actionPerformed(ActionEvent e) {
+            if (deletedNodeList.size() > 1) {
+            nodeList.add(deletedNodeList.remove(deletedNodeList.size()-1));
+            p.repaint();
+            }
+        }
+    }
     //implements keyboard input for each gate type and panning
     static void setUpKey() {
         And.action and = new And.action();
@@ -75,10 +89,16 @@ public class Main {
         Xor.action xor = new Xor.action();
         Xnor.action xnor = new Xnor.action();
         Not.action not = new Not.action();
+        Switch.action swith = new Switch.action();
+        Light.action light = new Light.action();
+
         Arrow.Up up = new Arrow.Up();
         Arrow.Down down = new Arrow.Down();
         Arrow.Left left = new Arrow.Left();
         Arrow.Right right = new Arrow.Right();
+
+        CtrlZ ctrlZ = new CtrlZ();
+        CtrlY ctrlY = new CtrlY();
 
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD1, 0), "AND");
         p.getActionMap().put("AND", and);
@@ -94,6 +114,10 @@ public class Main {
         p.getActionMap().put("XNOR", xnor);
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD7, 0), "NOT");
         p.getActionMap().put("NOT", not);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD8, 0), "SWITCH");
+        p.getActionMap().put("SWITCH", swith);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD9, 0), "LIGHT");
+        p.getActionMap().put("LIGHT", light);
 
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "UP");
         p.getActionMap().put("UP", up);
@@ -103,7 +127,11 @@ public class Main {
         p.getActionMap().put("LEFT", left);
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "RIGHT");
         p.getActionMap().put("RIGHT", right);
+
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, 0), "CTRLZ");
+        p.getActionMap().put("CTRLZ", ctrlZ);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Y, 0), "CTRLY");
+        p.getActionMap().put("CTRLY", ctrlY);
     }
-    
 
 }

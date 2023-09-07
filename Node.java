@@ -89,7 +89,7 @@ public class Node {
         return ans;
     }
 
-    public Point2D.Double getPrintPos() {
+    public Point getPrintPos() {
         Main.worldSpaceToScreenSpace.setWorld();
         double[] ans = Main.worldSpaceToScreenSpace.translate(this.getPosMat());
          
@@ -97,7 +97,7 @@ public class Node {
         ans[0] += Main.p.getWidth()/2 + panX;
         ans[1] += Main.p.getHeight()/2 + panY;
         
-        return new Point2D.Double(ans[0], ans[1]);
+        return new Point((int)ans[0], (int)ans[1]);
     }
     public static Point2D.Double getWorldPos(Point screenPoint) {
         Main.worldSpaceToScreenSpace.setWorld();

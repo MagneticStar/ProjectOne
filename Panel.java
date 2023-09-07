@@ -23,8 +23,12 @@ public class Panel extends JPanel {
             workingNode = Main.nodeList.get(i);
             g.setColor(workingNode.getGate().getColor());
             g.fillRect((int)workingNode.getPrintPos().x - workingNode.getWidth()/2, (int)workingNode.getPrintPos ().y - workingNode.getHeight()/2, workingNode.getWidth(), workingNode.getHeight());
-            System.out.println(Main.nodeList.size() + " " + workingNode.getPrintPos().x + " " + workingNode.getPrintPos().y);
-
+            for (Node input1 : workingNode.connectionsInput1) {
+                g.drawLine(workingNode.getPrintPos().x, workingNode.getPrintPos().y, input1.getPrintPos().x, input1.getPrintPos().y);
+            }
+            for (Node input2 : workingNode.connectionsInput2) {
+                g.drawLine(workingNode.getPrintPos().x, workingNode.getPrintPos().y, input2.getPrintPos().x, input2.getPrintPos().y);
+            }
         }
     }
 }

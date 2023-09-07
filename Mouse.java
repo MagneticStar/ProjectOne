@@ -7,13 +7,16 @@ public class Mouse extends MouseAdapter {
     public void mouseClicked(MouseEvent e) {
 
         for (Node workingNode : Main.nodeList) {
-            if (e.getPoint().distance(workingNode.getPrintPos()) < 10) {
+            if (Math.abs(e.getPoint().x - workingNode.getPrintPos().x) < workingNode.getWidth()/2 && Math.abs(e.getPoint().y - workingNode.getPrintPos().y) < workingNode.getWidth()/2) {
+                System.out.println(e.getPoint() + " : " + workingNode.getPrintPos());
+                System.out.println(workingNode.getWidth() + " : " + workingNode.getHeight());
                 workingNode.clicked();
                 return;
             }
         }
         if (Main.nextGatePlacement != null) {
             Main.nodeList.add(new Node(Node.getWorldPos(e.getPoint()), Main.nextGatePlacement));
+            Main.deletedNodeList.clear();
         }
         Main.p.repaint();
     }
