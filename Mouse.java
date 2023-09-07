@@ -5,7 +5,7 @@ public class Mouse extends MouseAdapter {
     //listens for mouse clicks and tests if near a node
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println(e.getPoint());
+
         for (Node workingNode : Main.nodeList) {
             if (e.getPoint().distance(workingNode.getPrintPos()) < 10) {
                 workingNode.clicked();
@@ -15,7 +15,7 @@ public class Mouse extends MouseAdapter {
         if (Main.nextGatePlacement != null) {
             Main.nodeList.add(new Node(Node.getWorldPos(e.getPoint()), Main.nextGatePlacement));
         }
-        
+        Main.p.repaint();
     }
     //sets the scale of nodes and moves them accordingly about the world center for zooming effect
     public void mouseWheelMoved(MouseWheelEvent e) {
