@@ -10,6 +10,8 @@ public class Main {
     public static Panel p;
     public static Mouse mouseListener = new Mouse();
     public static Gate nextGatePlacement;
+    public static Node lastNodeClicked = null;
+    public static int nextInputChoice = 1;
     public static void main(String args[]) {
         createScreens();
         
@@ -79,6 +81,9 @@ public class Main {
         Arrow.Down down = new Arrow.Down();
         Arrow.Left left = new Arrow.Left();
         Arrow.Right right = new Arrow.Right();
+        Node.setNextInput1 set1 = new Node.setNextInput1();
+        Node.setNextInput2 set2 = new Node.setNextInput2();
+
 
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD1, 0), "AND");
         p.getActionMap().put("AND", and);
@@ -94,6 +99,8 @@ public class Main {
         p.getActionMap().put("XNOR", xnor);
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD7, 0), "NOT");
         p.getActionMap().put("NOT", not);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD0, 0), "AND");
+        p.getActionMap().put("AND", and);
 
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "UP");
         p.getActionMap().put("UP", up);
@@ -103,7 +110,10 @@ public class Main {
         p.getActionMap().put("LEFT", left);
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "RIGHT");
         p.getActionMap().put("RIGHT", right);
-    }
-    
 
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD0, 0), "IN1");
+        p.getActionMap().put("IN1", set1);
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_DECIMAL, 0), "IN2");
+        p.getActionMap().put("IN2", set2);
+    }
 }

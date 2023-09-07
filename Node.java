@@ -1,6 +1,9 @@
 import java.awt.Point;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
 
 public class Node {
     private Gate gate;
@@ -139,9 +142,37 @@ public class Node {
     }
 
     public void clicked() {
-        // called when clicked
-        // if isSwitch
-        // click -> setInput
+
         System.out.println("clicked");
+    }
+
+    public void setLastNodeClicked() {
+        Main.lastNodeClicked = this;
+    }
+
+    static class setNextInput1 extends AbstractAction {
+        public void actionPerformed(ActionEvent e) {
+            Main.nextInputChoice = 1;
+        } 
+    }
+
+    static class setNextInput2 extends AbstractAction {
+        public void actionPerformed(ActionEvent e) {
+            Main.nextInputChoice = 2;
+        } 
+    }
+
+    public void setConnection() {
+        if(Main.lastNodeClicked == null) {
+            Main.lastNodeClicked = this;
+        }
+        else {
+            if(Main.nextInputChoice == 1) {
+                addConnectionIn1(Main.lastNodeClicked);
+            }
+            else {
+                addConnectionIn2(Main.lastNodeClicked);
+            }
+        }
     }
 }

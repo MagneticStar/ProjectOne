@@ -8,6 +8,7 @@ public class Mouse extends MouseAdapter {
 
         for (Node workingNode : Main.nodeList) {
             if (e.getPoint().distance(workingNode.getPrintPos()) < 10) {
+                workingNode.setConnection();
                 workingNode.clicked();
                 return;
             }
@@ -16,6 +17,7 @@ public class Mouse extends MouseAdapter {
             Main.nodeList.add(new Node(Node.getWorldPos(e.getPoint()), Main.nextGatePlacement));
         }
         Main.p.repaint();
+        Main.lastNodeClicked = null;
     }
     //sets the scale of nodes and moves them accordingly about the world center for zooming effect
     public void mouseWheelMoved(MouseWheelEvent e) {
@@ -35,4 +37,6 @@ public class Mouse extends MouseAdapter {
         Main.worldSpaceToScreenSpace.setWorld();
         Main.p.repaint();
     }
+
+
 }
