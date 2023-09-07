@@ -173,6 +173,8 @@ public class Node {
             else {
                 addConnectionIn2(Main.lastNodeClicked);
             }
+            Main.lastNodeClicked = null;
         }
+        Main.p.repaint();
     }
 }
