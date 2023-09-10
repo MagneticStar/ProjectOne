@@ -9,6 +9,11 @@ public class Or extends Gate {
         super();
 
     }
+
+    public void copy() {
+        Main.nextGatePlacement = new Or();
+    }
+
     @Override
     public boolean evaluate(boolean one, boolean two){
         return one || two;

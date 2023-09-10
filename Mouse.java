@@ -15,6 +15,7 @@ public class Mouse extends MouseAdapter {
         }
         if (Main.nextGatePlacement != null) {
             Main.nodeList.add(new Node(Node.getWorldPos(e.getPoint()), Main.nextGatePlacement));
+            Main.nextGatePlacement.copy();
             Main.deletedNodeList.clear();
         }
         Main.lastNodeClicked = null;

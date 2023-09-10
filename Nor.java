@@ -9,6 +9,9 @@ public class Nor extends Gate {
         super();
 
     }
+    public void copy() {
+        Main.nextGatePlacement = new Nor();
+    }
     @Override
     public boolean evaluate(boolean one, boolean two){
         return !(one || two);

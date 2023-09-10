@@ -14,17 +14,10 @@ public class Main {
     public static Gate nextGatePlacement;
     public static Node lastNodeClicked = null;
     public static int nextInputChoice = 1;
+    private static boolean ticks = false;
     public static void main(String args[]) {
         createScreens();
-        
-        while(true) {
-            try {
-                //sets tick rate
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+        while (ticks) {
             tick();
         }
     }
@@ -53,6 +46,7 @@ public class Main {
                 }
             }
         }
+        Main.p.repaint();
     }
 
     static void createScreens() {
@@ -82,6 +76,12 @@ public class Main {
             }
         }
     }
+    static class tickbutton extends AbstractAction {
+        public void actionPerformed(ActionEvent e) {
+            tick();
+            ticks = true;
+        }
+    }
     //implements keyboard input for each gate type and panning
     static void setUpKey() {
         And.action and = new And.action();
@@ -104,6 +104,11 @@ public class Main {
 
         CtrlZ ctrlZ = new CtrlZ();
         CtrlY ctrlY = new CtrlY();
+
+        tickbutton tickb = new tickbutton();
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "tick");
+        p.getActionMap().put("tick", tickb);
+
 
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD1, 0), "AND");
         p.getActionMap().put("AND", and);

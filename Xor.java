@@ -8,8 +8,14 @@ public class Xor extends Gate{
     public Xor() {
         super();
     }
+
+    public void copy() {
+        Main.nextGatePlacement = new Xor();
+    }
+
     @Override
     public boolean evaluate(boolean one, boolean two){
+        System.out.println(one);
         return one ^ two;
     }
     public Color getColor() {

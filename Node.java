@@ -74,6 +74,7 @@ public class Node {
 
     //evaluates the gate with the current inputs/outputs    
     public void evaluateGate() {
+        
         nextOutput = gate.evaluate(input1, input2);
     }
 
@@ -108,7 +109,6 @@ public class Node {
         // sets center
         screenArray[0] -= Main.p.getWidth()/2 + panX;
         screenArray[1] -= Main.p.getHeight()/2 + panY;
-        System.out.println(screenArray[0] + "," + screenArray[1]);
         double[] ans = Main.worldSpaceToScreenSpace.inverseTranslate(screenArray);
         
         
@@ -142,8 +142,7 @@ public class Node {
     }
 
     public void clicked() {
-
-        System.out.println("clicked");
+        gate.clicked();
     }
 
     public void setLastNodeClicked() {

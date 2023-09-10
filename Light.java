@@ -9,8 +9,14 @@ public class Light extends Gate {
         return one;
     }
 
+    public void copy() {
+        Main.nextGatePlacement = new Light();
+    }
+
     public Color getColor() {
+        //  System.out.println(onOff);
         return onOff?Color.LIGHT_GRAY:Color.DARK_GRAY;
+       
     }
 
     static class action extends AbstractAction {

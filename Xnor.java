@@ -9,6 +9,10 @@ public class Xnor extends Gate {
         super();
     }
 
+    public void copy() {
+        Main.nextGatePlacement = new Xnor();
+    }
+
     public boolean evaluate(boolean one, boolean two){
         return !(one ^ two);
     }

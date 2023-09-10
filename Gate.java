@@ -1,6 +1,13 @@
 import java.awt.Color;
 
 public class Gate {
+    public void clicked() {
+
+    }
+
+    public void copy() {
+        Main.nextGatePlacement = new Gate();
+    }
 
     public boolean evaluate(boolean one, boolean two){
         return false;

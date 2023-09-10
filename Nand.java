@@ -8,6 +8,9 @@ public class Nand extends Gate{
     public Nand() {
         super();
     }
+    public void copy() {
+        Main.nextGatePlacement = new Nand();
+    }
     @Override
     public boolean evaluate(boolean one, boolean two){
         return !(one && two);

@@ -10,6 +10,10 @@ public class Not extends Gate {
 
     }
 
+    public void copy() {
+        Main.nextGatePlacement = new Nor();
+    }
+
     public boolean evaluate(boolean one, boolean two){
         return !one;
     }
