@@ -82,6 +82,11 @@ public class Main {
             ticks = true;
         }
     }
+    static class connectionNull extends AbstractAction {
+        public void actionPerformed(ActionEvent e) {
+            lastNodeClicked = null;
+        }
+    }
     //implements keyboard input for each gate type and panning
     static void setUpKey() {
         And.action and = new And.action();
@@ -104,12 +109,13 @@ public class Main {
 
         CtrlZ ctrlZ = new CtrlZ();
         CtrlY ctrlY = new CtrlY();
-
+        connectionNull nulla = new connectionNull();
         tickbutton tickb = new tickbutton();
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "tick");
         p.getActionMap().put("tick", tickb);
 
-
+        p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Q, 0), "NULL");
+        p.getActionMap().put("NULL", nulla);
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD1, 0), "AND");
         p.getActionMap().put("AND", and);
         p.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD2, 0), "NAND");
