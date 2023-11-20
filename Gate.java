@@ -1,4 +1,5 @@
 import java.awt.Color;
+//Test
 
 public class Gate {
     public void clicked() {

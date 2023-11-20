@@ -1,5 +1,4 @@
 import java.awt.event.ActionEvent;
-//Test
 import javax.swing.AbstractAction;
 
 public class Arrow {
