@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
 public class Node {
+    //Test
     private Gate gate;
     private Point2D.Double location;
     public ArrayList<Node> connectionsInput1 = new ArrayList<Node>(); 
